@@ -13,6 +13,7 @@ ________________________________________________________________________________
 - Type of challenge: `Learning and Practising`
 - Promotion : `Arai2.1`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
+![logo](assets/giphy.gif)
 
 ## Mission Objectives
 - Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
