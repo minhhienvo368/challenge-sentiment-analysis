@@ -20,8 +20,8 @@ ________________________________________________________________________________
 - Be able to evaluate the performance of pre-trained models.
 - Be able to predicted an overall sentiment out of all those tweets.
 - Be able to do the development and deployment of the dashboard for text summarization.
-<img src="assets/giphy.gif" width=10% height=10%>
 ____________________________________________________________________________________________________________________________________________
+<img src="assets/giphy.gif" width=10% height=10%>
 
 ## About The Repository
 
