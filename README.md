@@ -1,7 +1,7 @@
 # NLP Sentiment Analysis
 
 ______________________________________________________________________________________________________________________________________________________
-![test image size](assets/netflix_logo.jpeg){:height="80%" width="80%"}
+![test image size](assets/netflix_logo.jpeg)
 ______________________________________________________________________________________________________________________________________________________
 
 
@@ -13,10 +13,9 @@ ________________________________________________________________________________
 - Type of challenge: `Learning and Practising`
 - Promotion : `Arai2.1`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
-![test image size](assets/giphy.gif){:height="30%" width="30%"}
 
 ## Mission Objectives
-- Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
+- Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.<img src="assets/giphy.gif" width=20% height=20%>
 - Be able to apply data preprocessing (e.g. tokenization, stemming and lemmatization) for exploration of text-based datasets.
 - Be able to evaluate the performance of pre-trained models.
 - Be able to predicted an overall sentiment out of all those tweets.
