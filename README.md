@@ -1,4 +1,4 @@
-# Email Sentiment Analysis
+# NLP Sentiment Analysis
 
 ______________________________________________________________________________________________________________________________________________________
 ![logo]()
@@ -7,10 +7,10 @@ ________________________________________________________________________________
 
 - Developer Name: `Minh Hien Vo`
 - Level: `Junior Data Scientist`
-- Duration: `2 weeks`
-- Deadline : `14/10/21 16:00 AM`
+- Duration: `4 days`
+- Deadline : `14/10/21 16:00`
 - Team challenge: `Solo project`
-- Type of challenge: `Learning`
+- Type of challenge: `Learning and Practising`
 - Promotion : `Arai2.1`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
 
@@ -26,7 +26,6 @@ ________________________________________________________________________________
 ## About The Repository
 
 This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. 
-
 
 
 ____________________________________________________________________________________________________________________________________________
@@ -84,8 +83,6 @@ ________________________________________________________________________________
 ## Clone / Fork This Repository
   - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-## P E N D I N G . . .
-  - The Question tab is still in progress.. If you have any suggestions, feel free to contact me. Thank you!
 
 ![Thank you]()
 ### Thank you for reading. Have fun with the code! 🤗
