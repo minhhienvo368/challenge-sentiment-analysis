@@ -15,12 +15,12 @@ ________________________________________________________________________________
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
 
 ## Mission Objectives
-- Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.<img src="assets/giphy.gif" width=20% height=20%>
+- Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
 - Be able to apply data preprocessing (e.g. tokenization, stemming and lemmatization) for exploration of text-based datasets.
 - Be able to evaluate the performance of pre-trained models.
 - Be able to predicted an overall sentiment out of all those tweets.
 - Be able to do the development and deployment of the dashboard for text summarization.
-
+<img src="assets/giphy.gif" width=10% height=10%>
 ____________________________________________________________________________________________________________________________________________
 
 ## About The Repository
