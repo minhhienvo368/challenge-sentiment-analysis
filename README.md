@@ -1,7 +1,7 @@
 # NLP Sentiment Analysis
 
 ______________________________________________________________________________________________________________________________________________________
-![logo](assets/netflix_logo.jpeg | width="400" height="200")
+![logo](assets/netflix_logo.jpeg){:height="80%" width="80%"}
 ______________________________________________________________________________________________________________________________________________________
 
 
@@ -13,7 +13,7 @@ ________________________________________________________________________________
 - Type of challenge: `Learning and Practising`
 - Promotion : `Arai2.1`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
-![logo](assets/giphy.gif |height="100")
+![logo](assets/giphy.gif){:height="30%" width="30%"}
 
 ## Mission Objectives
 - Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
