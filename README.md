@@ -1,9 +1,8 @@
 # NLP Sentiment Analysis
 
 ______________________________________________________________________________________________________________________________________________________
-![logo]()
+![test image size](assets/netflix_logo.jpeg)
 ______________________________________________________________________________________________________________________________________________________
-
 
 - Developer Name: `Minh Hien Vo`
 - Level: `Junior Data Scientist`
@@ -11,8 +10,9 @@ ________________________________________________________________________________
 - Deadline : `14/10/21 16:00`
 - Team challenge: `Solo project`
 - Type of challenge: `Learning and Practising`
-- Promotion : `Arai2.1`
+- Promotion : `Arai2.31`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
+____________________________________________________________________________________________________________________________________________
 
 ## Mission Objectives
 - Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
@@ -20,18 +20,28 @@ ________________________________________________________________________________
 - Be able to evaluate the performance of pre-trained models.
 - Be able to predicted an overall sentiment out of all those tweets.
 - Be able to do the development and deployment of the dashboard for text summarization.
-
 ____________________________________________________________________________________________________________________________________________
+<img src="assets/giphy.gif" width=10% height=10%>
 
+
+## Data sources:
+  + Source: Twitter
+  + Tweets: 45k
+  + Language: English
+   
+| Netflix Show | Nº Tweets scraped |
+|--------------|-----------|
+| Netflix Platform | 3209    |
+| Daredevil    | 19500     |
+| The Witcher  | 10007     |
+| Squid Game   | 3486      |
+| Punisher     | 200       |
 ## About The Repository
 
 This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. 
 
 
 ____________________________________________________________________________________________________________________________________________
-
-
-## R E P O S I T O R Y
 
 **README.md**
   - describe all of infos about the project
@@ -60,37 +70,25 @@ ________________________________________________________________________________
 
 **Pandas** https://pypi.org/project/pandas/
   - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+**Twint**
 
-**Time** https://docs.python.org/3/library/time.html
-  - Time module handles time-related tasks.
-  - In this project, time is used to calculate the total time the code runs.
-
-
-**Typing** https://docs.python.org/3/library/typing.html
-  - Typing defines a standard notation for Python function and variable type annotations.
-  - In this project, typing is used to help document the code properly.
-
-**Heroku** //www.heroku.com
-  - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-  - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the slug size is too big.
-  - As free users of Heroku, we are only allowed of up to 500MB slug size.
-  - Everything is already in the repository, the Procfile and the requirements.txt, we just need a bigger slug size to deploy it
+**re**
+**textblob**
+**plotly88
+**PIL**
 ![image](g)
 
-
+## Sentiment Analysis Models: TextBlob
 ______________________________________________________________________________________________________________________________________________________
 
 ## Clone / Fork This Repository
   - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
 
-![Thank you]()
-### Thank you for reading. Have fun with the code! 🤗
-
 
 + Nice to have: 
-  Make an API that accepts a hashtag in the route /predict.
-  Run the complete pipeline to predict the sentiment out of your hashtag.
-  Wrap the API in a Docker container.
-  Deploy it on Heroku.
+
+    * Make an API that accepts a hashtag in the route /predict.
+    * Run the complete pipeline to predict the sentiment out of your hashtag.
+    * Deploy it on Heroku.
 

@@ -7,69 +7,63 @@ from PIL import Image, ImageOps
 # To identify the sentiment of text
 from textblob import TextBlob
 import re
+import requests
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+analyser = SentimentIntensityAnalyzer()
+
 # make container:
 header = st.container()
 dataset = st.container()
 features = st.container()
 model_training = st.container()
 
-def decontracted(phrase):
-    # specific
-    phrase = re.sub(r"won\'t", "will not", phrase)
-    phrase = re.sub(r"can\'t", "can not", phrase)
-
+def expand_tweet(twt):
     # general
-    phrase = re.sub(r"n\'t", " not", phrase)
-    phrase = re.sub(r"\'re", " are", phrase)
-    phrase = re.sub(r"\'s", " is", phrase)
-    phrase = re.sub(r"\'d", " would", phrase)
-    phrase = re.sub(r"\'ll", " will", phrase)
-    phrase = re.sub(r"\'t", " not", phrase)
-    phrase = re.sub(r"\'ve", " have", phrase)
-    phrase = re.sub(r"\'m", " am", phrase)
-    return phrase
-
-
-def listToString_1(s):
-    # initialize an empty string
-    # print("s = ", s)
-    str1 = ""
-    count = 0
-    # traverse in the string
-    for ele in s:
-        if count == 0:
-            str1 = str1 + str(ele)
-            count = count + 1
-        else:
-            str1 = str1 + "" + str(ele)
-            count = count + 1
-
-    # return string
-    # print('str1 = ',str1)
-    return str1
+    twt = re.sub(r"n\'t", " not", twt)
+    twt = re.sub(r"\'re", " are", twt)
+    twt = re.sub(r"\'s", " is", twt)
+    twt = re.sub(r"\'d", " would", twt)
+    twt = re.sub(r"\'ll", " will", twt)
+    twt = re.sub(r"\'t", " not", twt)
+    twt = re.sub(r"\'ve", " have", twt)
+    twt = re.sub(r"\'m", " am", twt)
+    # specific
+    twt = re.sub(r"won\'t", "will not", twt)
+    twt = re.sub(r"can\'t", "can not", twt)    
+    return twt
 
 
 
 # To fetch the sentiments using Textblob
-def fetch_sentiment_using_textblob(tweet):
-    new_tweet = decontracted(tweet)
+def fetch_sentiment_using_textblob(twt):
+    new_tweet = expand_tweet(twt)
     analysis = TextBlob(new_tweet)
-    return 'positif' if analysis.sentiment.polarity >= 0 else 'negatif'
+    return 'positive' if analysis.sentiment.polarity >= 0 else 'negative'
 
+def sentiment_analyzer_scores(text):
+    score = analyser.polarity_scores(text)
+    lb = score['compound']
+    if lb >= 0.04:
+        return 'positive'
+    elif (lb > -0.04) and (lb < 0.04):
+        return 'neutral'
+    else:
+        return 'negative'
 
 with header:
-    st.header("_ Header  _")
-    st.title(" Sentiment - Analysis ")
-    image = Image.open('assets/giphy.gif')
+    st.header("_ NLP app_")
+    st.title(" Twitter Sentiment Analysis ")
+    image = Image.open('assets/theguilty.jpg')
     st.image(image, width=600)
     st.write('---')
 
 with dataset:
-    st.header(" Dataset ")
-    st.title(" Text for prediction ")
-    quidgame="quidgame"
-    user_input = st.text_area("Give a text please: ", quidgame)
+    st.write("With TextBlob sentiment")
+    st.title(" Type your text")
+    squidgame="squidgame"
+    user_input = st.text_area("Give a text please: ", squidgame)
     res=fetch_sentiment_using_textblob(user_input)
     st.write('---')
-    st.write("Sentiment's prediction")
-    st.write("Prediction   :   ", res)
+    #st.write("Sentiment Analysis prediction with TextBlob")
+    st.write("You've just given a", res, 'twist')
+
