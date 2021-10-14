@@ -56,10 +56,10 @@ ________________________________________________________________________________
   - is a txt file used for specifying what python packages are required to run this project
 
 **assets folder**
-  - Contain all of images using in the project
+  - Contain all of images, logos using in the project
+
 **data folder**
-  - this is where the logo is saved
-  - this is also where the **summary.txt** is saved, which gives the user the option to download the summary as a txt file
+  - Contains the csv files
       
 ______________________________________________________________________________________________________________________________________________________
 ### Libraries
