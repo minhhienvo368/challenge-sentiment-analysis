@@ -10,7 +10,7 @@ ________________________________________________________________________________
 - Deadline : `14/10/21 16:00`
 - Team challenge: `Solo project`
 - Type of challenge: `Learning and Practising`
-- Promotion : `Arai2.1`
+- Promotion : `Arai2.31`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
 ____________________________________________________________________________________________________________________________________________
 
