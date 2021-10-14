@@ -26,16 +26,16 @@ ________________________________________________________________________________
 
 ## Data sources:
   + Source: Twitter
-  + Tweets: 45k
+  + Tweets: 39.7k
   + Language: English
    
 | Netflix Show | Nº Tweets scraped |
 |--------------|-----------|
-| Netflix Platform | 3209    |
-| Daredevil    | 19500     |
-| The Witcher  | 10007     |
-| Squid Game   | 3486      |
-| Punisher     | 200       |
+| Squid Game   | 23956      |
+| Netflix Platform | 3456    |
+| The Guilty    | 1444     |
+| Midnight Mass | 7690     |
+| Maid     | 3133       |
 ## About The Repository
 
 This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. 
