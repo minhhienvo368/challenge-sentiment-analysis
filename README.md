@@ -20,9 +20,8 @@ ________________________________________________________________________________
 - Be able to evaluate the performance of pre-trained models.
 - Be able to predicted an overall sentiment out of all those tweets.
 - Be able to do the development and deployment of the dashboard for text summarization.
-____________________________________________________________________________________________________________________________________________
 <img src="assets/giphy.gif" width=10% height=10%>
-
+____________________________________________________________________________________________________________________________________________
 
 ## Data sources:
   + Source: Twitter
@@ -63,8 +62,7 @@ ________________________________________________________________________________
   - this is also where the **summary.txt** is saved, which gives the user the option to download the summary as a txt file
       
 ______________________________________________________________________________________________________________________________________________________
-
-## Libraries
+### Libraries
 
 **Pandas** https://pypi.org/project/pandas/
 **Twint**
@@ -75,10 +73,11 @@ ________________________________________________________________________________
 
 ![image](g)
 
-## Sentiment Analysis Models: TextBlob, Vader
+### Sentiment Analysis Models: TextBlob, Vader
 ______________________________________________________________________________________________________________________________________________________
 
-## Clone / Fork This Repository
+### Clone / Fork This Repository
   If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-## Link of the app: https://rb.gy/fgohcu
+### Link of the app:## 
+  + https://rb.gy/fgohcu
