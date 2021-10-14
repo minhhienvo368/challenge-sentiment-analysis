@@ -39,7 +39,8 @@ ________________________________________________________________________________
 This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. The Twint library has been used to fetch the tweets five hashtags corresponding to five series or movies from Twitter (39.7k tweets in total). Then by empoyed some preprocessing techniques,  the tweets have been cleaned. Then the pretrained sentiment models (e.g. TextBlob, Vader) have been used to predict or to label the dataframe.
 
 <img src="assets/giphy.gif" width=10% height=10%>
-____________________________________________________________________________________________________________________________________________
+
+_________________________________________________________________________________________________________________________________________
 
 **README.md**
   - describe all of infos about the project
