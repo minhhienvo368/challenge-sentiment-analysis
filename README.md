@@ -60,21 +60,12 @@ ________________________________________________________________________________
 
 **Pandas** https://pypi.org/project/pandas/
   - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+**Twint**
 
-**Time** https://docs.python.org/3/library/time.html
-  - Time module handles time-related tasks.
-  - In this project, time is used to calculate the total time the code runs.
-
-
-**Typing** https://docs.python.org/3/library/typing.html
-  - Typing defines a standard notation for Python function and variable type annotations.
-  - In this project, typing is used to help document the code properly.
-
-**Heroku** //www.heroku.com
-  - Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-  - In this project, Heroku is used to deploy the app but due to limited GB since we are only using the free version, it was returning an error that the slug size is too big.
-  - As free users of Heroku, we are only allowed of up to 500MB slug size.
-  - Everything is already in the repository, the Procfile and the requirements.txt, we just need a bigger slug size to deploy it
+**re**
+**textblob**
+**plotly88
+**PIL**
 ![image](g)
 
 
