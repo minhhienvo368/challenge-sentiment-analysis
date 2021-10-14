@@ -46,49 +46,39 @@ ________________________________________________________________________________
 **README.md**
   - describe all of infos about the project
 
-**app.py**
+**app2model.py**
   - using streamlit library
 
-
 **Procfile**
-  - Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
+  - Streamlit apps include a Procfile that specifies the commands that are executed by the app on startup.
   - This Procfile is used to declare a variety of process types, including: the app's web server.
 
 **requirements.txt**
   - is a txt file used for specifying what python packages are required to run this project
 
 **assets folder**
- 
+  - Contain all of images using in the project
 **data folder**
   - this is where the logo is saved
   - this is also where the **summary.txt** is saved, which gives the user the option to download the summary as a txt file
       
 ______________________________________________________________________________________________________________________________________________________
 
-## Libraries Used For This Project
-
+## Libraries
 
 **Pandas** https://pypi.org/project/pandas/
-  - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
 **Twint**
-
-**re**
 **textblob**
-**plotly88
+**Vadersentiment**
+**plotly**
 **PIL**
+
 ![image](g)
 
-## Sentiment Analysis Models: TextBlob
+## Sentiment Analysis Models: TextBlob, Vader
 ______________________________________________________________________________________________________________________________________________________
 
 ## Clone / Fork This Repository
-  - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
+  If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-
-
-+ Nice to have: 
-
-    * Make an API that accepts a hashtag in the route /predict.
-    * Run the complete pipeline to predict the sentiment out of your hashtag.
-    * Deploy it on Heroku.
-
+## Link of the app: https://rb.gy/fgohcu
