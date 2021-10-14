@@ -84,13 +84,10 @@ ________________________________________________________________________________
   - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
 
-![Thank you]()
-### Thank you for reading. Have fun with the code! 🤗
-
 
 + Nice to have: 
-  Make an API that accepts a hashtag in the route /predict.
-  Run the complete pipeline to predict the sentiment out of your hashtag.
-  Wrap the API in a Docker container.
-  Deploy it on Heroku.
+
+    * Make an API that accepts a hashtag in the route /predict.
+    * Run the complete pipeline to predict the sentiment out of your hashtag.
+    * Deploy it on Heroku.
 
