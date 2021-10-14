@@ -51,9 +51,8 @@ def sentiment_analyzer_scores(text):
         return 'negative'
 
 with header:
-    st.header("_ NLP app_")
-    st.title(" Twitter Sentiment Analysis ")
-    image = Image.open('assets/theguilty.jpg')
+    st.title(" Tweets Sentiment Analysis ")
+    image = Image.open('assets/theguilty.png')
     st.image(image, width=600)
     st.write('---')
 
