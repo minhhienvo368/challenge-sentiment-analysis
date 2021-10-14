@@ -4,7 +4,6 @@ ________________________________________________________________________________
 ![test image size](assets/netflix_logo.jpeg)
 ______________________________________________________________________________________________________________________________________________________
 
-
 - Developer Name: `Minh Hien Vo`
 - Level: `Junior Data Scientist`
 - Duration: `4 days`
@@ -13,6 +12,7 @@ ________________________________________________________________________________
 - Type of challenge: `Learning and Practising`
 - Promotion : `Arai2.1`
 - Coding Bootcamp: `Becode Artificial Intelligence (AI) Bootcamp`
+____________________________________________________________________________________________________________________________________________
 
 ## Mission Objectives
 - Be able to scrapped at least 10000 tweets in English containing the hashtag of a series or movie.
@@ -23,15 +23,18 @@ ________________________________________________________________________________
 ____________________________________________________________________________________________________________________________________________
 <img src="assets/giphy.gif" width=10% height=10%>
 
+
+## Data sources:
+  + Source: Twitter
+  + Tweets: 45k
+  + Language: English
+
 ## About The Repository
 
 This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. 
 
 
 ____________________________________________________________________________________________________________________________________________
-
-
-## R E P O S I T O R Y
 
 **README.md**
   - describe all of infos about the project
@@ -68,6 +71,7 @@ ________________________________________________________________________________
 **PIL**
 ![image](g)
 
+Sentiment Analysis Model: TextBlob
 
 ______________________________________________________________________________________________________________________________________________________
 
