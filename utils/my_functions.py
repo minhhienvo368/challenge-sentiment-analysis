@@ -41,12 +41,11 @@ def scrape_twitter(searchterms: str, nr_twt) -> pd.DataFrame:
     can edit the maximum amount of tweets returned.
     """
     c = twint.Config()
-    c.Lang = 'en'
     c.Search = searchterms
-    c.Limit = round(nr_twt*1.6)  # Collects more than what the user wants because we filter more after
+    c.Lang = 'en'
+    c.Limit = round(nr_twt*1.5)  # Collects more than what the user wants because we filter more after
     c.Pandas = True  # saved as a pd dataframe
     twint.run.Search(c)
-
     df = twint.storage.panda.Tweets_df
     
     #Filter english reviews only (problem with TWINT even if selects only 'en')

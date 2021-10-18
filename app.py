@@ -3,6 +3,7 @@ from PIL import Image, ImageOps
 import pandas as pd
 from utils.my_functions import *
 import matplotlib.pyplot as plt
+import twint
 
 # Page configuration
 st.set_page_config(
@@ -26,8 +27,8 @@ st.sidebar.title('Menu Bar')
 #st.sidebar.write('''39.7k tweets''')
 show_list = ['Homepage','Netflix', 'SquidGame', 'TheGuilty', 'Maid', 'MidnightMass', 'YourFavouriteShow']
 user_selection = st.sidebar.selectbox('Choose a Netflix show', options = show_list)
-st.sidebar.write("Interested in the project?"
-                 "\nCheck it out on [Github](https://github.com/minhhienvo368/challenge-sentiment-analysis)")
+st.sidebar.write("Interested in this project?"
+                 "\nVisit my [Github](https://github.com/minhhienvo368/challenge-sentiment-analysis)")
 
 if user_selection == "Homepage": 
     with header:
@@ -65,28 +66,21 @@ elif user_selection == "YourFavouriteShow":
     # Scrapes a searchterm given by the user.
     # Shows a piechart with useful info on sentiment analysis.
         input_txt = st.text_input("Enter the hashtag of a series on Twitter:", value="#")
-        number_tweets = st.slider('How many tweets do you want to analyze? (max=1000)', 0, 1500, 100)
-        # hashtag_list = []
-        # if input_txt:
-        #     cleaned_hashtag = hashtag_preprocess(input_txt)
-        #     if len(cleaned_hashtag) != 0:
-        #         hashtag_list += cleaned_hashtag
-        #     else:
-        #         hashtag_list = ['empty']
+        number_tweets = st.slider('How many tweets do you want to analyze? (max=1500)', 0, 1500, 100)
         
-        #st.write(f'Current hashtags: __{hashtag_list}__')        
         st.write(f'Current hashtags: __{input_txt}__')  
         col1, col2, col3 = st.columns(3)
         # Button to scrape and analyze
         if col2.button('Fetch it!') and number_tweets >= 1:
             with st.spinner('In progress ...'):
-                if number_tweets > 1:
-                    st.write(f"*Summary:* {str(number_tweets)} tweets about __{input_txt}__ are being scraped and analyzed.")
-                elif number_tweets == 1:
-                    st.write(f"*Summary:* 1 tweet about __{input_txt}__ is being scraped and analyzed.")
-
-                df = scrape_twitter(input_txt, number_tweets)
-                st.write("Preprocessing the tweets ...")
+                # if number_tweets > 1:
+                #     st.write(f"*Summary:* {str(number_tweets)} tweets about __{input_txt}__ are being scraped and analyzed.")
+                # elif number_tweets == 1:
+                #     st.write(f"*Summary:* 1 tweet about __{input_txt}__ is being scraped and analyzed.")
+                st.write(f"*Summary:* {str(number_tweets)} tweets about __{input_txt}__ are being scraped and analyzed.")
+                st.write("*Scraping the tweets ...*")
+                df = scrape_twitter(input_txt, number_tweets)  
+                st.write("*Preprocessing the tweets ...")
                 df['tweet_cleaned'] = df['tweet'].apply(lambda x: expand_tweet(x))
                 df['tweet_cleaned'] = df['tweet_cleaned'].apply(lambda x: preprocess_tweet(x))
 
@@ -101,19 +95,20 @@ elif user_selection == "YourFavouriteShow":
                 csv = convert_df(df)
                 st.write('')
 
-            # Plots sentiment analysis
-            fig = px.histogram(df, x=df.sentiment)
-            fig.update_layout(title_text="Sentiment Score Distribution", title_x=0.5)
-            fig.update_xaxes(title_text='Sentiment score from 1 (negative) to 5 (positive)')
-            fig.update_yaxes(title_text='Count')
-            fig.update_layout(bargap=.1)
-            st.plotly_chart(fig)
+                # Plots sentiment analysis
+                fig = px.histogram(df, x=df.sentiment)
+                fig.update_layout(title_text="Sentiment Score Distribution", title_x=0.5)
+                fig.update_xaxes(title_text='Sentiment score from 1 (negative) to 5 (positive)')
+                fig.update_yaxes(title_text='Count')
+                fig.update_layout(bargap=.1)
+                st.plotly_chart(fig)
 
-            score = df.sentiment.mean()
-            # Showing average sentiment score
-            st.metric(label="Average Sentiment Score", value=f"{round(score,2)}/5")
-            df_positive = df[df['sentiment'] > 3]
-            df_negative = df[df['sentiment'] < 3]
+                score = df.sentiment.mean()
+                # Showing average sentiment score
+                st.metric(label="Average Sentiment Score", value=f"{round(score,2)}/5")
+                df_positive = df[df['sentiment'] > 3]
+                df_negative = df[df['sentiment'] < 3]
+                df_neutral = df[df['sentiment'] == 3]
 
             # Checks if enough positive and negative tweets for the wordcloud (minimum 1 tweet in each)
             if len(df_positive.index) > 0 and len(df_negative.index) > 0:
@@ -124,20 +119,22 @@ elif user_selection == "YourFavouriteShow":
                 tweet_All = " ".join(tweet for tweet in df['tweet_cleaned'])
                 tweet_pos = " ".join(tweet for tweet in df_positive['tweet_cleaned'])
                 tweet_neg = " ".join(tweet for tweet in df_negative['tweet_cleaned'])
+                tweet_neu = " ".join(tweet for tweet in df_neutral['tweet_cleaned'])
 
                 fig, ax = plt.subplots(3, 1, figsize=(30, 30))
                 # Create and generate a word cloud image
-                wordcloud_ALL = WordCloud(max_font_size=50, max_words=100, background_color="white").generate(tweet_All)
                 wordcloud_POS = WordCloud(max_font_size=50, max_words=100, background_color="white").generate(tweet_pos)
                 wordcloud_NEG = WordCloud(max_font_size=50, max_words=100, background_color="white").generate(tweet_neg)
+                wordcloud_NEU = WordCloud(max_font_size=50, max_words=100, background_color="white").generate(tweet_neu)
 
-                # Display the generated image
-                ax[0].imshow(wordcloud_ALL, interpolation='bilinear')
-                ax[0].set_title('All Tweets', fontsize=30, pad=20)
-                ax[0].axis('off')
                 ax[1].imshow(wordcloud_POS, interpolation='bilinear')
                 ax[1].set_title('Positive Tweets', fontsize=30, pad=20)
                 ax[1].axis('off')
+                
+                ax[1].imshow(wordcloud_NEU, interpolation='bilinear')
+                ax[1].set_title('Positive Tweets', fontsize=30, pad=20)
+                ax[1].axis('off')
+
                 ax[2].imshow(wordcloud_NEG, interpolation='bilinear')
                 ax[2].set_title('Negative Tweets', fontsize=30, pad=20)
                 ax[2].axis('off')
@@ -166,7 +163,7 @@ elif user_selection == "YourFavouriteShow":
             col2.download_button(
                 label="Download data as CSV",
                 data=csv,
-                file_name='SenseTwitter.csv',
+                file_name='Twitter_scraped_data.csv',
                 mime='text/csv')
 
 elif user_selection in show_list[1:6]:
