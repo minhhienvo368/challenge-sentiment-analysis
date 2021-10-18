@@ -6,15 +6,18 @@ nltk == 3.5
 textblob ==0.15.3
 vaderSentiment == 3.3.2
 plotly==5.3.1
-<<<<<<< HEAD
 emoji_translate
 
-
-=======
 git+git://github.com/twintproject/twint.git@origin/master#egg=twint
 nest_asyncio
 requests==2.26.0
 joblib==0.16.0
 emoji-translate==0.1.0
 wordcloud==1.8.1
->>>>>>> a455a92746df965191edda8898a3d53ab106c1ef
+googletransx==2.4.2
+torch==1.9.1
+torchvision==0.10.1
+transformers==4.11.3
+tokenizers==0.10.3
+matplotlib==3.4.3
+matplotlib-inline==0.1.3
