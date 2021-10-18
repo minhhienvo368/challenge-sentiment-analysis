@@ -6,7 +6,9 @@ nltk == 3.5
 textblob ==0.15.3
 vaderSentiment == 3.3.2
 plotly==5.3.1
-emoji_translate
-twint
-math
+git+git://github.com/twintproject/twint.git@origin/master#egg=twint
 nest_asyncio
+requests==2.26.0
+joblib==0.16.0
+emoji-translate==0.1.0
+wordcloud==1.8.1
