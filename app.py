@@ -188,7 +188,20 @@ elif user_selection in show_list[1:6]:
             st.success(f"Processed {len(df)} tweets, using Vadersentiment model")
         fig = px.pie(df, values=df.sentiment3cat.value_counts(), names=df.sentiment3cat.value_counts().index, title=f'{user_selection} Sentiment Analysis', color_discrete_sequence=px.colors.qualitative.Dark2)
         st.plotly_chart(fig, use_container_width=True)
-    
+        st.markdown(f"<h4 style='text-align: center;'>WordCloud of {user_selection}</h4>",
+                            unsafe_allow_html=True)
+
+        tweet_All = " ".join(tweet for tweet in df['tweet'])
+        wordcloud_ALL = WordCloud(max_font_size=50, max_words=100, background_color="white").generate(tweet_All)
+
+        # Create and generate a word cloud image
+        fig, ax = plt.subplots(figsize=(30, 30))
+        ax.imshow(wordcloud_ALL, interpolation='bilinear')
+        ax.set_title('All Tweets', fontsize=30, pad=20)
+        ax.axis('off')
+
+        st.pyplot(fig)
+
 
 
 
