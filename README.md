@@ -21,8 +21,6 @@ ________________________________________________________________________________
 - Be able to predicted an overall sentiment out of all those tweets.
 - Be able to do the development and deployment of the dashboard for text summarization.
 ____________________________________________________________________________________________________________________________________________
-<img src="assets/giphy.gif" width=10% height=10%>
-
 
 ## Data sources:
   + Source: Twitter
@@ -38,57 +36,46 @@ ________________________________________________________________________________
 | Maid     | 3133       |
 ## About The Repository
 
-This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. 
+This is a project about developing a Natural language processing model that is able to predict an overall sentiment out of all tweets with a specific hashtag on Twitter. The Twint library has been used to fetch the tweets five hashtags corresponding to five series or movies from Twitter (39.7k tweets in total). Then by empoyed some preprocessing techniques,  the tweets have been cleaned. Then the pretrained sentiment models (e.g. TextBlob, Vader) have been used to predict or to label the dataframe.
 
+<img src="assets/giphy.gif" width=10% height=10%>
 
-____________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________
 
 **README.md**
   - describe all of infos about the project
 
-**app.py**
+**app2model.py**
   - using streamlit library
 
-
 **Procfile**
-  - Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
+  - Streamlit apps include a Procfile that specifies the commands that are executed by the app on startup.
   - This Procfile is used to declare a variety of process types, including: the app's web server.
 
 **requirements.txt**
   - is a txt file used for specifying what python packages are required to run this project
 
 **assets folder**
- 
+  - Contain all of images, logos using in the project
+
 **data folder**
-  - this is where the logo is saved
-  - this is also where the **summary.txt** is saved, which gives the user the option to download the summary as a txt file
+  - Contains the csv files
       
 ______________________________________________________________________________________________________________________________________________________
+### Libraries
+  - Pandas
+  - Twint
+  - Textblob 
+  - Vadersentiment
+  - Plotly
+  - PIL
 
-## Libraries Used For This Project
 
-
-**Pandas** https://pypi.org/project/pandas/
-  - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
-**Twint**
-
-**re**
-**textblob**
-**plotly88
-**PIL**
-![image](g)
-
-## Sentiment Analysis Models: TextBlob
+### Sentiment Analysis Models: TextBlob, Vader
 ______________________________________________________________________________________________________________________________________________________
 
-## Clone / Fork This Repository
-  - If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
+### Clone / Fork This Repository
+  If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-
-
-+ Nice to have: 
-
-    * Make an API that accepts a hashtag in the route /predict.
-    * Run the complete pipeline to predict the sentiment out of your hashtag.
-    * Deploy it on Heroku.
-
+### The app running online:
+  + https://rb.gy/fgohcu
