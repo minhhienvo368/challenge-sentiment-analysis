@@ -80,7 +80,7 @@ elif user_selection == "YourFavouriteShow":
                 st.write(f"*Summary:* {str(number_tweets)} tweets about __{input_txt}__ are being scraped and analyzed.")
                 st.write("*Scraping the tweets ...*")
                 #df = scrape_twitter(input_txt, number_tweets)  
-                c = twint.config()
+                c = twint.Config()
                 c.Hide_output = True
 
                 c.search = input_txt
@@ -89,14 +89,7 @@ elif user_selection == "YourFavouriteShow":
                 c.Pandas = True  # saved as a pd dataframe
                 twint.run.Search(c)
                 df = twint.storage.panda.Tweets_df
-c = twint.Config()
-        c.Hide_output = True
-        c.Search = hashtag
-        c.Lang = 'en'
-        c.Limit = 750
-        c.Pandas = True
-        twint.run.Search(c)
-        scraped_tweets = twint.storage.panda.Tweets_df
+
                 st.write("*Preprocessing the tweets ...")
                 df['tweet_cleaned'] = df['tweet'].apply(lambda x: expand_tweet(x))
                 df['tweet_cleaned'] = df['tweet_cleaned'].apply(lambda x: preprocess_tweet(x))
