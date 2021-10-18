@@ -7,12 +7,18 @@ from textblob import TextBlob
 from emoji_translate.emoji_translate import Translator
 from typing import Tuple, List
 import plotly.express as px
-import streamlit as st
 import math
 import json
 import datetime
 import twint
+import string
+import emoji
 import nest_asyncio
+import torch
+#import spacy
+from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
 #nest_asyncio.apply()
 
 from wordcloud import WordCloud, STOPWORDS
@@ -20,35 +26,33 @@ from wordcloud import WordCloud, STOPWORDS
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
 
-def scrape_twitter(searchterms: List, max_twt) -> pd.DataFrame:
+
+def hashtag_preprocess(text):
+    clean_hashtag = ''
+    for char in text:
+        if char not in string.punctuation and not emoji.is_emoji(char) and char.isalpha():
+            clean_hashtag += char
+    cleaned_hashtag = clean_hashtag.replace(' ', '')
+    return cleaned_hashtag
+
+def scrape_twitter(searchterms: str, nr_twt) -> pd.DataFrame:
     """
     Scrapes Twitter for tweets with a given searchterm,
     can edit the maximum amount of tweets returned.
     """
+    c = twint.Config()
+    c.Lang = 'en'
+    c.Search = searchterms
+    c.Limit = round(nr_twt*1.6)  # Collects more than what the user wants because we filter more after
+    c.Pandas = True  # saved as a pd dataframe
+    twint.run.Search(c)
+
+    df = twint.storage.panda.Tweets_df
     
-    tweets_for_df = []
-
-    for search_term in searchterms:
-        c = twint.Config()
-        c.Search = search_term
-        c.Limit = round(max*2)  # Collects more than what the user wants because we filter more after
-        c.Pandas = True  # saved as a pd dataframe
-        twint_df = twint.storage.panda.Tweets_df
-        
-        #Filter english reviews only (problem with TWINT even if selects only 'en')
-        tweets_df_eng = twint_df.loc[twint_df['language'] == 'en']
-
-    df_tweets = pd.DataFrame(data=tweets_df_eng,
-                             columns=["date", "username", "tweet"])
-
-    df_tweets = df_tweets.drop_duplicates(["tweet"])
-    df_tweets = df_tweets[df_tweets["text"].str.startswith("I've just watched episode S")]
-    print(f"Shape of df after dropping duplicates: {df_tweets.shape}")
-
-    if len(df_tweets) > max_twt:
-        return df_tweets.iloc[:max_twt]
-    else:
-        return df_tweets
+    #Filter english reviews only (problem with TWINT even if selects only 'en')
+    df = df[df['language'] == 'en']
+    df_tweets = pd.DataFrame(data=df, columns=["date", "username", "tweet"])
+    return df_tweets
 
 def expand_tweet(twt):
     # general
@@ -64,6 +68,16 @@ def expand_tweet(twt):
     twt = re.sub(r"won\'t", "will not", twt)
     twt = re.sub(r"can\'t", "can not", twt)    
     return twt
+
+# Using BERT pretrained model to analyzes tweet and gives sentiment score (1-5) 
+# Loads tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+
+def calcul_sentiment_score(tweet):
+    tokens = tokenizer.encode(tweet, return_tensors='pt')
+    result = model(tokens)
+    return int(torch.argmax(result.logits))+1
 
 
 # To fetch the sentiments using Textblob - 2 categories
@@ -111,4 +125,6 @@ def get_tweet_sentiment(tweet: str) -> float:
     analysis = TextBlob(tweet)
     return analysis.polarity
 
-
+# Converts df to csv
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
