@@ -77,4 +77,4 @@ ________________________________________________________________________________
 ### Clone / Fork This Repository
   If you wish to clone/fork this repository, you can just click on the repository, then click the Clone/fork button and follow the instructions.
 
-+ [Link of app](https://share.streamlit.io/minhhienvo368/sentiment_analysis_tweets/app.py) 
++ [Link of app](https://share.streamlit.io/minhhienvo368/challenge-sentiment-analysis/main/app.py) 
